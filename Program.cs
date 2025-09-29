@@ -1,32 +1,114 @@
-﻿using System;
-
-class Program
+﻿class Program
 {
     static void Main()
     {
-        Console.WriteLine("Hello World!");
-        Console.WriteLine("Roburgert");
+        System.Random rand = new System.Random();
 
-        double totalBurgerCost = 0.0;
-        double totalToppingCost = 0.0;
+        while (true)
+        {
+            System.Console.WriteLine("Enter 1 to display a random shape");
+            System.Console.WriteLine("Enter 2 to exit");
+            System.Console.Write("Choice: ");
+            string choice = System.Console.ReadLine();
 
-        double BURGER_COST = 10.0;
-        double TOPPING_COST = 0.50;
-        double TIP_EXPENSE = 0.20;
-        double SALES_TAX = 0.10;
+            if (choice == "1")
+            {
+                int shape = rand.Next(4); // 0 to 3
 
-        Console.WriteLine("How many burgers do you want?");
-        int numberOfBurgers = int.Parse(Console.ReadLine());
+                if (shape == 0)
+                    DisplayBrickWall(rand);
+                else if (shape == 1)
+                    DisplayWindow(rand);
+                else if (shape == 2)
+                    DisplayLadder(rand);
+                else
+                    DisplayScaffold(rand);
+            }
+            else if (choice == "2")
+            {
+                System.Console.WriteLine("Goodbye!");
+                break;
+            }
+            else
+            {
+                System.Console.WriteLine("Invalid choice, please enter 1 or 2.");
+            }
 
-        Console.WriteLine("How many toppings do you want?");
-        int numberOfToppings = int.Parse(Console.ReadLine());
+            System.Console.WriteLine();
+        }
+    }
 
-        totalBurgerCost = BURGER_COST * numberOfBurgers;
-        totalToppingCost = TOPPING_COST * numberOfToppings;
+    static void DisplayBrickWall(System.Random rand)
+    {
+        System.Console.WriteLine("\nBrick Wall:");
 
-        double totalOrderCost = (totalBurgerCost + totalToppingCost) * (1 + TIP_EXPENSE) + (numberOfBurgers * SALES_TAX);
+        int rows = rand.Next(5, 9);
+        int cols = rand.Next(5, 9);
 
-        Console.WriteLine("Your total order cost is: $" + totalOrderCost);
+        for (int r = 0; r < rows; r++)
+        {
+            for (int c = 0; c < cols; c++)
+            {
+                // Random chance for a hole in the wall
+                if (rand.Next(10) < 2)  // About 20% chance
+                    System.Console.Write("       ");  // hole space
+                else
+                    System.Console.Write("[===]");
+            }
+            System.Console.WriteLine();
+        }
+    }
+
+    static void DisplayWindow(System.Random rand)
+    {
+        System.Console.WriteLine("\nWindow:");
+
+        int rows = rand.Next(5, 9);
+        int cols = rand.Next(5, 9);
+
+        for (int r = 0; r < rows; r++)
+        {
+            for (int c = 0; c < cols; c++)
+            {
+                if (r == 0 || r == rows - 1)
+                    System.Console.Write("[  ]");
+                else if (c == 0 || c == cols - 1)
+                    System.Console.Write("[  ]");
+                else
+                    System.Console.Write("////");
+            }
+            System.Console.WriteLine();
+        }
+    }
+
+    static void DisplayLadder(System.Random rand)
+    {
+        System.Console.WriteLine("\nLadder:");
+
+        int steps = rand.Next(5, 9);
+
+        for (int i = 0; i < steps; i++)
+        {
+            System.Console.WriteLine("|      |");
+            System.Console.WriteLine("|------|");
+        }
+        System.Console.WriteLine("|      |");
+    }
+
+    static void DisplayScaffold(System.Random rand)
+    {
+        System.Console.WriteLine("\nScaffold:");
+
+        int blocks = rand.Next(2, 5);
+
+        for (int i = 0; i < blocks; i++)
+        {
+            System.Console.WriteLine("| \\    / |");
+            System.Console.WriteLine("|  \\  /  |");
+            System.Console.WriteLine("|   XX   |");
+            System.Console.WriteLine("|  /  \\  |");
+            System.Console.WriteLine("| /    \\ |");
+        }
     }
 }
 

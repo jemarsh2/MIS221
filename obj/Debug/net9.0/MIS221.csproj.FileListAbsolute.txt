@@ -12,3 +12,4 @@ C:\Users\juliu\OneDrive\Desktop\MIS221\obj\Debug\net9.0\refint\MIS221.dll
 C:\Users\juliu\OneDrive\Desktop\MIS221\obj\Debug\net9.0\MIS221.pdb
 C:\Users\juliu\OneDrive\Desktop\MIS221\obj\Debug\net9.0\MIS221.genruntimeconfig.cache
 C:\Users\juliu\OneDrive\Desktop\MIS221\obj\Debug\net9.0\ref\MIS221.dll
+C:\Users\juliu\OneDrive\Desktop\MIS221\obj\Debug\net9.0\MIS221.sourcelink.json
